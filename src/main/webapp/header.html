@@ -4,15 +4,15 @@
 </div>
 <div class="shortcut">
     <!-- 未登录状态  -->
-    <div class="login_out">
+    <div class="login_out" style="display:none">
         <a href="login.html">登录</a>
         <a href="register.html">注册</a>
     </div>
     <!-- 登录状态  -->
-    <div class="login">
+    <div class="login" style="display:none">
         <span id="welcome">欢迎您！admin</span>
         <a href="myfavorite.html" class="collection">我的收藏</a>
-        <a href="javascript:;">退出</a>
+        <a href="user?action=logout">退出</a>
     </div>
 </div>
 <div class="header_wrap">
@@ -50,3 +50,35 @@
         <li><a href="favoriterank.html">收藏排行榜</a></li>
     </ul>
 </div>
+
+<script type="text/javascript">
+    //页面加载完毕以后执行
+    $(function () {
+        loadUserStatus();
+    })
+
+    /**
+     * 加载用户的状态
+     */
+    function loadUserStatus() {
+        //1.get访问user和getLoginUserData方法
+        $.get({
+            url:"user",
+            data:"action=getLoginUserData",  //指定要调用的方法
+            success: function (result) {  //返回false表示没有登录
+                if (result == "false") {
+                    //2.如果返回false，没有登录
+                    $("div.login_out").show();
+                    $("div.login").hide();
+                }
+                else {
+                    //3.否则显示用户的名字
+                    $("div.login_out").hide();
+                    $("div.login").show();
+                    //修改名字
+                    $("#welcome").text("欢迎您！" + result);
+                }
+            }
+        });
+    }
+</script>
