@@ -296,7 +296,7 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 
-/*分页样式*/
+/*!*分页样式*!
 .pageNum {
     width: 100%;
     overflow: hidden;
@@ -322,4 +322,4 @@ h1, h2, h3, h4, h5, h6 {
 }
 .pageNum ul .threeword {
   width: 75px;
-}
+}*/

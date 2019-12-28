@@ -21,8 +21,8 @@
             <a href="/"><img src="images/logo.jpg" alt=""></a>
         </div>
         <div class="search">
-            <input name="" type="text" placeholder="请输入路线名称" class="search_input" autocomplete="off">
-            <a href="javascript:;" class="search-button">搜索</a>
+            <input name="" id="searchKey" type="text" placeholder="请输入路线名称" class="search_input" autocomplete="off">
+            <a href="javascript:;" class="search-button" id="btnRname">搜索</a>
         </div>
         <div class="hottel">
             <div class="hot_pic">
@@ -38,23 +38,24 @@
 <!-- 首页导航 -->
 <div class="navitem">
     <ul class="nav">
-        <li><a href="index.html">首页</a></li>
-        <li><a href="route_list.html">门票</a></li>
-        <li><a href="route_list.html">酒店</a></li>
-        <li><a href="route_list.html">香港车票</a></li>
-        <li><a href="route_list.html">出境游</a></li>
-        <li><a href="route_list.html">国内游</a></li>
-        <li><a href="route_list.html">港澳游</a></li>
-        <li><a href="route_list.html">抱团定制</a></li>
-        <li><a href="route_list.html">全球自由行</a></li>
-        <li><a href="favoriterank.html">收藏排行榜</a></li>
+
     </ul>
 </div>
 
 <script type="text/javascript">
     //页面加载完毕以后执行
     $(function () {
-        loadUserStatus();
+        loadNavItems();//加载导航条上分类数据
+        loadUserStatus();//加载用户的登录状态
+
+        //搜索按钮的点击事件
+        $("#btnRname").click(function () {
+            //得到rname的值
+            var rname = $("#searchKey").val().trim();
+            //调用route_list.html中方法，因为header.html被包含了，可以认为在同一个页面
+            var cid = getParameter("cid");  //不要重复导
+            changePage(cid,1,rname);
+        });
     })
 
     /**
@@ -78,6 +79,25 @@
                     //修改名字
                     $("#welcome").text("欢迎您！" + result);
                 }
+            }
+        });
+    }
+
+    /**
+     * 加载导航条上分类数据
+     */
+    function loadNavItems(){
+        $.get({
+            url:"category",
+            data:"action=findAllCategory",
+            success:function(categories) {
+                var html = "<li><a href=\"index.html\">首页</a></li>";
+                for (var category of categories) {
+                    html += "<li><a href=\"route_list.html?cid="+ category.cid +"\">" + category.cname +"</a></li>";
+                }
+                html += "<li><a href=\"favoriterank.html\">收藏排行榜</a></li>";
+                //得到导航条的容器
+                $("ul.nav").html(html);
             }
         });
     }

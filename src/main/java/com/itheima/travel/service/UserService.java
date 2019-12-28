@@ -38,18 +38,19 @@ public class UserService {
      * 登录
      */
     public User login(String username, String password) throws CustomerMsgException {
-        //1.调用Dao层查询用户是否存在
         User user = userDao.findUserByName(username);
         //2.如果不存在，抛出异常
         if (user == null) {
             throw new CustomerMsgException("用户不存在");
         }
         //3.存在就比较密码是否相同
-        String pwd = user.getPassword();
-        String md5 = Md5Utils.getMd5(password);
+        String pwd = user.getPassword();  //得到数据库中已经加密的密码
+        String md5 = Md5Utils.getMd5(password);  //用户提交的密码加密
         if (!md5.equals(pwd)) {
+            //4.如果不相同，抛出异常
             throw new CustomerMsgException("密码错误");
         }
+        //5.返回user对象，登录成功的
         return user;
     }
 }

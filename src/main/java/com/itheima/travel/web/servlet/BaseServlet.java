@@ -1,5 +1,7 @@
 package com.itheima.travel.web.servlet;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
+
 import javax.servlet.Servlet;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -11,6 +13,12 @@ import java.lang.reflect.Method;
 
 @WebServlet("/BaseServlet")
 public class BaseServlet extends HttpServlet {
+
+    /*
+    转成JSON字符串对象
+     */
+    protected ObjectMapper mapper = new ObjectMapper();
+
     protected void service(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         String action = request.getParameter("action");
         Class<? extends Servlet> clazz = this.getClass();
