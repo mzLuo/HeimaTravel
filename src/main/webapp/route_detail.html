@@ -7,144 +7,225 @@
     <link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="css/common.css">
     <link rel="stylesheet" type="text/css" href="css/route-detail.css">
+
+    <!--导入工具-->
+    <script src="js/getParameter.js"></script>
+
 </head>
 
 <body>
 <!--引入头部-->
 <div id="header"></div>
-    <!-- 详情 start -->   
-    <div class="wrap">
-        <div class="bread_box">
-            <a href="/">首页</a>
-            <span> &gt;</span>
-            <a href="#">国内游</a><span> &gt;</span>
-            <a href="#">全国-曼谷6-7天自由行 泰国出境旅游 特价往返机票自由行二次确认</a>
-        </div>
-        <div class="prosum_box">
-            <dl class="prosum_left">
-                <dt>
-                    <img alt="" class="big_img" src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m49788843d72171643297ccc033d9288ee.jpg">
-                </dt>
-                <dd>
-                    <a class="up_img up_img_disable"></a>
-                    <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m40920d0669855e745d97f9ad1df966ebb.jpg">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m20920d0669855e745d97f9ad1df966ebb.jpg">
-                    </a>
-                    <a title="" class="little_img cur_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m49788843d72171643297ccc033d9288ee.jpg">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m29788843d72171643297ccc033d9288ee.jpg">
-                    </a>
-                    <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m4531a8dbceefa2c44e6d0e35627cd2689.jpg">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m2531a8dbceefa2c44e6d0e35627cd2689.jpg">
-                    </a>
-                    <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m46d8cb900e9f6c0a762aca19eae40c00c.jpg">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m26d8cb900e9f6c0a762aca19eae40c00c.jpg">
-                    </a>
-                    <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m45ea00f6eba562a767b5095bbf8cffe07.jpg" style="display:none;">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m25ea00f6eba562a767b5095bbf8cffe07.jpg">
-                    </a>
-                    <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m4265ec488cd1bc7ce749bc8c9b34b87bc.jpg" style="display:none;">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m2265ec488cd1bc7ce749bc8c9b34b87bc.jpg">
-                    </a>
-                    <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m4e7e964909d7dd1a9f6e5494d4dc0c847.jpg" style="display:none;">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m2e7e964909d7dd1a9f6e5494d4dc0c847.jpg">
-                    </a>
-                    <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m467db00e1b76718fab0fe8b96e10f4d35.jpg" style="display:none;">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m267db00e1b76718fab0fe8b96e10f4d35.jpg">
-                    </a>
-                    <a title="" class="little_img" data-bigpic="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size4/201703/m487bbbc6e43eba6aa6a36cc1a182f7a20.jpg" style="display:none;">
-                        <img src="http://www.jinmalvyou.com/Public/uploads/goods_img/img_size2/201703/m287bbbc6e43eba6aa6a36cc1a182f7a20.jpg">
-                    </a>
-                    <a class="down_img down_img_disable" style="margin-bottom: 0;"></a>
-                </dd>
-            </dl>
-            <div class="prosum_right">
-               <p class="pros_title">【尾单特卖】全国-曼谷6-7天自由行 泰国出境旅游 特价往返机票自由行二次确认</p>
-                <p class="hot">1-2月出发，网付立享￥1099/2人起！爆款位置有限，抢完即止！</p>
-                <div class="pros_other">
-                    <p>经营商家  ：黑马国旅</p>
-                    <p>咨询电话 : 400-618-9090</p>
-                    <p>地址 ： 传智播客黑马程序员</p>  
-                </div>
-                <div class="pros_price">
-                    <p class="price"><strong>¥2699.00</strong><span>起</span></p>
-                    <p class="collect">
+<!-- 详情 start -->
+<div class="wrap">
+    <div class="bread_box">
+        <a href="/">首页</a>
+        <span> &gt;</span>
+        <a href="#">国内游</a><span> &gt;</span>
+        <a href="#">全国-曼谷6-7天自由行 泰国出境旅游 特价往返机票自由行二次确认</a>
+    </div>
+    <div class="prosum_box">
+        <dl class="prosum_left">
+
+        </dl>
+        <div class="prosum_right">
+            <p class="pros_title">【尾单特卖】全国-曼谷6-7天自由行 泰国出境旅游 特价往返机票自由行二次确认</p>
+            <p class="hot">1-2月出发，网付立享￥1099/2人起！爆款位置有限，抢完即止！</p>
+            <div class="pros_other">
+                <p>经营商家 ：黑马国旅</p>
+                <p>咨询电话 : 400-618-9090</p>
+                <p>地址 ： 传智播客黑马程序员</p>
+            </div>
+            <div class="pros_price">
+                <p class="price"><strong>¥2699.00</strong><span>起</span></p>
+                <p class="collect">
 						   <span>
 								<a class="btn"><i class="glyphicon glyphicon-heart-empty"></i>点击收藏</a>
-								<a  class="btn already" disabled="disabled"><i class="glyphicon glyphicon-heart-empty"></i>点击收藏</a>
+								<a class="btn already" disabled="disabled"><i
+                                        class="glyphicon glyphicon-heart-empty"></i>点击收藏</a>
 							</span>
-                        <span>已收藏100次</span>
-                    </p>
-                </div>        
+                    <span>已收藏100次</span>
+                </p>
             </div>
         </div>
-        <div class="you_need_konw">
-            <span>旅游须知</span>
-            <div class="notice">
-                <p>1、旅行社已投保旅行社责任险。建议游客购买旅游意外保险 <br>
-
-                <p>2、旅游者参加打猎、潜水、海边游泳、漂流、滑水、滑雪、滑草、蹦极、跳伞、滑翔、乘热气球、骑马、赛车、攀岩、水疗、水上飞机等属于高风险性游乐项目的，敬请旅游者务必在参加前充分了解项目的安全须知并确保身体状况能适应此类活动；如旅游者不具备较好的身体条件及技能，可能会造成身体伤害。</p>
-
-                <p>3、参加出海活动时，请务必穿着救生设备。参加水上活动应注意自己的身体状况，有心脏病、冠心病、高血压、感冒、发烧和饮酒及餐后不可以参加水上活动及潜水。在海里活动时，严禁触摸海洋中各种鱼类，水母，海胆，珊瑚等海洋生物，避免被其蛰伤。老人和小孩必须有成年人陪同才能参加合适的水上活动。在海边游玩时，注意保管好随身携带的贵重物品。</p>
-
-                <p>4、根据中国海关总署的规定，旅客在境外购买的物品，在进入中国海关时可能需要征收关税。详细内容见《中华人民共和国海关总署公告2010年第54号文件》。</p>
-
-                <p>5、建议出发时行李托运，贵重物品、常用物品、常用药品、御寒衣物等请随身携带，尽量不要托运。行李延误属于不可抗力因素，我司将全力协助客人跟进后续工作，但我司对此不承担任何责任。</p>
-                <p>1、旅行社已投保旅行社责任险。建议游客购买旅游意外保险 <br>
-
-                <p>2、旅游者参加打猎、潜水、海边游泳、漂流、滑水、滑雪、滑草、蹦极、跳伞、滑翔、乘热气球、骑马、赛车、攀岩、水疗、水上飞机等属于高风险性游乐项目的，敬请旅游者务必在参加前充分了解项目的安全须知并确保身体状况能适应此类活动；如旅游者不具备较好的身体条件及技能，可能会造成身体伤害。</p>
-
-                <p>3、参加出海活动时，请务必穿着救生设备。参加水上活动应注意自己的身体状况，有心脏病、冠心病、高血压、感冒、发烧和饮酒及餐后不可以参加水上活动及潜水。在海里活动时，严禁触摸海洋中各种鱼类，水母，海胆，珊瑚等海洋生物，避免被其蛰伤。老人和小孩必须有成年人陪同才能参加合适的水上活动。在海边游玩时，注意保管好随身携带的贵重物品。</p>
-
-                <p>4、根据中国海关总署的规定，旅客在境外购买的物品，在进入中国海关时可能需要征收关税。详细内容见《中华人民共和国海关总署公告2010年第54号文件》。</p>
-
-                <p>5、建议出发时行李托运，贵重物品、常用物品、常用药品、御寒衣物等请随身携带，尽量不要托运。行李延误属于不可抗力因素，我司将全力协助客人跟进后续工作，但我司对此不承担任何责任。</p>
-            </div>           
-        </div>
     </div>
-    <!-- 详情 end -->
+</div>
+<!-- 详情 end -->
 
-    <!--引入头部-->
-    <div id="footer"></div>
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-    <script src="js/jquery-3.3.1.js"></script>
-    <!-- Include all compiled plugins (below), or include individual files as needed -->
-    <script src="js/bootstrap.min.js"></script>
-    <!--导入布局js，共享header和footer-->
-    <script type="text/javascript" src="js/include.js"></script>
-    <script>
-    $(document).ready(function() {
+<!--引入头部-->
+<div id="footer"></div>
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="js/jquery-3.3.1.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<!--导入布局js，共享header和footer-->
+<script type="text/javascript" src="js/include.js"></script>
+<script>
+    $(function () {
+        //通过地址栏得到rid
+        var rid = getParameter("rid");
+        //显示线路的详情
+        showRouteDetails(rid);
+    });
+
+    //显示线路的详情
+    function showRouteDetails(rid) {
+        //访问服务器
+        $.get({
+            url: "route",
+            data: {
+                action: "findRouteByRid",
+                rid: rid
+            },
+            success: function (route) {
+                //封装了4张表的route对象
+                //1.面包屑导航功能
+                //得到分类对象
+                var category = route.category;
+                var html = "<a href=\"index.html\">首页</a>" +
+                    "<span> &gt;</span>" +
+                    "<a href=\"route_list.html?cid=" + category.cid + "\">" + category.cname + "</a><span> &gt;</span>" +
+                    route.rname;
+                //显示在.breadbox中
+                $("div.bread_box").html(html);
+
+                //2.右边详情和商家的信息
+                //线路名字
+                $("p.pros_title").text(route.rname);
+                //线路的介绍
+                $("p.hot").text(route.routeIntroduce);
+
+                //商家
+                var seller = route.seller;
+                var html = "<p>经营商家  ：" + seller.sname + "</p>" +
+                    "<p>咨询电话 : " + seller.consphone + "</p>" +
+                    "<p>地址 ： " + seller.address + "</p>";
+                $("div.pros_other").html(html);
+
+                //价格
+                $("p.price>strong").html("&yen;" + route.price);
+                //收藏次数
+                $("p.collect span:last").text("已收藏" + route.count + "次");
+
+                //4.显示左边的轮播图
+                var imgs = route.routeImgList;
+                var html = "<dl class=\"prosum_left\">" +
+                    "<dt>" +
+                    "<img alt=\"\" class=\"big_img\" src=\"" + imgs[0].bigPic + "\">" +
+                    "</dt>" +
+                    "<dd>" +
+                    "<a class=\"up_img up_img_disable\"></a>";
+
+                for (var i = 0; i < imgs.length; i++) {
+                    var img = imgs[i];//其中一张
+                    if (i < 4) {
+                        html += "<a title=\"\" class=\"little_img\" data-bigpic=\"" + img.bigPic + "\">" +
+                            "<img src=\"" + img.smallPic + "\">" +
+                            "</a>";
+                    } else {
+                        html += "<a title=\"\" class=\"little_img\" data-bigpic=\"" + img.bigPic + "\" style=\"display:none;\">" +
+                            "<img src=\"" + img.smallPic + "\">" +
+                            "</a>";
+                    }
+                }
+
+                //拼接最后的部分
+                html += "<a class=\"down_img down_img_disable\" style=\"margin-bottom: 0;\"></a>" +
+                    "</dd>" +
+                    "</dl>";
+
+                //显示在dl中
+                $("dl.prosum_left").html(html);
+
+                //显示所有的数据以后，再调用轮播图的方法
+                changePic();
+
+                //调用方法，判断按钮是否可用
+                favoriteStatus(rid);
+            }
+        });
+    }
+
+    //判断按钮是否可用
+    function favoriteStatus(rid) {
+        $.get({
+            url:"route",
+            data: {
+                action:"isFavoriteByRid",  //调用的方法
+                rid:rid  //当前线路的id
+            },
+            success: function (isFav) {
+                //返回false，按钮可用
+                if (isFav == false) {
+                    $("p.collect>span:first").html("<a class=\"btn\" id='btnAddFav'><i class=\"glyphicon glyphicon-heart-empty\"></i>点击收藏</a>");
+                    //在按钮可用的情况下添加点击事件
+                    $("#btnAddFav").click(function () {
+                        $.get({
+                            url: "favorite",
+                            data: {
+                                action: "addFavorite",  //添加收藏
+                                rid: rid   //线路的id
+                            },
+                            success: function (flag) {
+                                //如果是false，表示没有登录
+                                if (flag == false) {
+                                    alert("收藏前请先登录");
+                                    location.href = "login.html";
+                                }
+                                else {
+                                    alert("收藏成功");
+                                    //如果是一个数字，表示收藏成功，并且要显示出来
+                                    $("p.collect span:last").text("已收藏" + flag + "次");
+                                    //让按钮不可用
+                                    $("p.collect>span:first").html("<a class=\"btn already\" disabled=\"disabled\"><i class=\"glyphicon glyphicon-heart-empty\"></i>点击收藏</a>");
+                                }
+
+                            }
+                        });
+                    });
+                }
+                else {  //如果为true表示不用可
+                    $("p.collect>span:first").html("<a class=\"btn already\" disabled=\"disabled\"><i class=\"glyphicon glyphicon-heart-empty\"></i>点击收藏</a>");
+                }
+            }
+        });
+    }
+
+
+    //轮播图的效果
+    function changePic() {
         //焦点图效果
         //点击图片切换图片
-        $('.little_img').on('mousemove', function() {
+        $('.little_img').on('mousemove', function () {
             $('.little_img').removeClass('cur_img');
             var big_pic = $(this).data('bigpic');
             $('.big_img').attr('src', big_pic);
             $(this).addClass('cur_img');
         });
-           //上下切换
+        //上下切换
         var picindex = 0;
         var nextindex = 4;
-        $('.down_img').on('click',function(){
+        $('.down_img').on('click', function () {
             var num = $('.little_img').length;
-            if((nextindex + 1) <= num){
-                $('.little_img:eq('+picindex+')').hide();
-                $('.little_img:eq('+nextindex+')').show();
+            if ((nextindex + 1) <= num) {
+                $('.little_img:eq(' + picindex + ')').hide();
+                $('.little_img:eq(' + nextindex + ')').show();
                 picindex = picindex + 1;
                 nextindex = nextindex + 1;
             }
         });
-        $('.up_img').on('click',function(){
+        $('.up_img').on('click', function () {
             var num = $('.little_img').length;
-            if(picindex > 0){
-                $('.little_img:eq('+(nextindex-1)+')').hide();
-                $('.little_img:eq('+(picindex-1)+')').show();
+            if (picindex > 0) {
+                $('.little_img:eq(' + (nextindex - 1) + ')').hide();
+                $('.little_img:eq(' + (picindex - 1) + ')').show();
                 picindex = picindex - 1;
                 nextindex = nextindex - 1;
             }
         });
         //自动播放
-        // var timer = setInterval("auto_play()", 5000);
-    });
+        var timer = setInterval("auto_play()", 3000);
+    }
 
     //自动轮播方法
     function auto_play() {
@@ -168,7 +249,7 @@
             $('.big_img').attr('src', big_pic);
         }
     }
-    </script>
+</script>
 </body>
 
 </html>

@@ -1,10 +1,12 @@
 package com.itheima.travel.dao;
 
 import com.itheima.travel.entity.Route;
+import com.itheima.travel.entity.RouteImg;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
 import java.util.List;
+import java.util.Map;
 
 public interface RouteDao {
     /**
@@ -27,4 +29,23 @@ public interface RouteDao {
      */
     @Select("select * from tab_route where cid=#{cid} and rname like \"%\"#{rname}\"%\" limit #{begin},#{size}")
     List<Route> getRoutesByPage(@Param("cid") int cid, @Param("begin") int begin, @Param("size") int size, @Param("rname")String rname);
+
+
+    /**
+     *查询线路详情，由三张表的数据组成
+     * 因为多列组成的一条记录，封装成Map，键表示列名，值这一列表示值
+     * @param rid
+     * @return
+     */
+    @Select("SELECT * FROM tab_category c INNER JOIN tab_route r ON c.cid = r.cid INNER JOIN tab_seller s ON s.sid = r.sid WHERE r.rid = #{rid}")
+    Map<String, Object> findRouteByRid(int rid);
+
+
+    /**
+     * 查询某个线路的图片，一条线路对应多张图片
+     * @param rid
+     * @return
+     */
+    @Select("select * from tab_route_img where rid=#{rid}")
+    List<RouteImg> findRouteImgsByRid(int rid);
 }

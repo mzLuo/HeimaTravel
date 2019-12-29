@@ -2,13 +2,17 @@ package com.itheima.travel.web.servlet;
 
 import com.itheima.travel.entity.PageBean;
 import com.itheima.travel.entity.Route;
+import com.itheima.travel.entity.User;
+import com.itheima.travel.service.IFavoriteService;
 import com.itheima.travel.service.RouteService;
+import com.itheima.travel.service.impl.FavoriteServiceImpl;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.List;
@@ -16,6 +20,7 @@ import java.util.List;
 @WebServlet("/route")
 public class RouteServlet extends BaseServlet {
     private RouteService routeService = new RouteService();
+    private IFavoriteService favoriteService = new FavoriteServiceImpl();  //收藏的业务类
 
     /**
      * 通过cid获取某个分类下精选线路
@@ -69,4 +74,46 @@ public class RouteServlet extends BaseServlet {
         out.print(json);
     }
 
+    /**
+     * 显示一条线路的详情
+     */
+    private void findRouteByRid(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.得到rid的值
+        int rid = Integer.parseInt(request.getParameter("rid"));
+        //2.调用业务层得到一条线路
+        Route route = routeService.findRouteByRid(rid);
+
+        //3.转成JSON对象
+        String json = mapper.writeValueAsString(route);
+
+        //4.打印到页面
+        response.setContentType("application/json;charset=utf-8");
+        PrintWriter out = response.getWriter();
+        out.print(json);
+    }
+
+    /*
+    判断收藏按钮是否可用
+     */
+    private void isFavoriteByRid(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        response.setContentType("application/json;charset=utf-8");
+        PrintWriter out = response.getWriter();
+
+        //1.判断用户是否登录
+        HttpSession session = request.getSession();
+        //2.如果没有登录，打印false
+        User user = (User) session.getAttribute("user");
+        if (user == null) {
+            out.print(false);
+        } else {
+            //3.如果已经登录，从会话域中取得uid
+            int uid = user.getUid();
+            //4.从客户端获取rid
+            int rid = Integer.parseInt(request.getParameter("rid"));
+            //5.调用业务方法判断线路是否收藏(在成员变量中创建收藏的业务对象)
+            boolean isFav = favoriteService.isFavoriteByRidAndUserId(rid, uid);
+            //6.如果收藏打印true，否则打印false
+            out.print(isFav);
+        }
+    }
 }

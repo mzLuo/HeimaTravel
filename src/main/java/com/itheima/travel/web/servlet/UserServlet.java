@@ -103,11 +103,13 @@ public class UserServlet extends BaseServlet {
                 //3.如果返回user对象，表示登录成功
                 User user = userService.login(username, password);
                 //将用户对象放在会话域中
+                System.out.println("user = " + user);
                 session.setAttribute("user", user);
                 //打印success给浏览器
                 out.print("success");
             } catch (CustomerMsgException e) {
                 //4.如果有异常表示登录失败，将异常信息打印到浏览器端去
+                e.printStackTrace();
                 out.print(e.getMessage());
             }
         }
