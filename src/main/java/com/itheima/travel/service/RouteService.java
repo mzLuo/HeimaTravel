@@ -80,4 +80,22 @@ public class RouteService {
         return route;
     }
 
+    /**
+     * 查询分页排行榜，封装成PageBean对象
+     */
+    public PageBean<Route> getPageBeanByFavoriteRank(int current,Map<String,String>condition) {
+        //1.得到size和current
+        int size = 8;
+
+        //2.查询数据库得到data和count
+        int begin = (current - 1) * size;
+        List<Route> data = routeDao.getRoutesFavoriteRankByPage(begin, size,condition);
+        int count = routeDao.getCountByFavoriteRank(condition);
+
+        //3.封装成PageBean
+        PageBean<Route> pageBean = new PageBean<>(data, count, current, size);
+
+        //4.返回
+        return pageBean;
+    }
 }

@@ -15,6 +15,7 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.util.HashMap;
 import java.util.List;
 
 @WebServlet("/route")
@@ -115,5 +116,29 @@ public class RouteServlet extends BaseServlet {
             //6.如果收藏打印true，否则打印false
             out.print(isFav);
         }
+    }
+
+    /**
+     * 查询收藏排行榜
+     */
+    private void findRoutesFavoriteRank(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        //1.得到当前是第几页
+        int current = Integer.parseInt(request.getParameter("current"));
+
+        //得到表单提交的查询条件封装成Map对象
+        HashMap<String,String> condition = new HashMap<>();
+        condition.put("rname",request.getParameter("rname"));
+        condition.put("startPrice",request.getParameter("startPrice"));
+        condition.put("endPrice",request.getParameter("endPrice"));
+
+
+        //2.调用业务层得到PageBean对象
+        PageBean<Route> pageBean = routeService.getPageBeanByFavoriteRank(current,condition);
+        //3.转成JSON打印
+        String json = mapper.writeValueAsString(pageBean);
+        response.setContentType("application/json;charset=utf-8");
+        PrintWriter out = response.getWriter();
+        out.print(json);
+
     }
 }

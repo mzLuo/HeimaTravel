@@ -6,6 +6,9 @@ import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 import org.apache.ibatis.annotations.Update;
 
+import java.util.List;
+import java.util.Map;
+
 public interface IFavoriteDao {
     /**
      * 通过rid和uid查询一条收藏记录
@@ -25,4 +28,18 @@ public interface IFavoriteDao {
      */
     @Update("update tab_route SET COUNT=COUNT+1 WHERE rid=#{rid}")
     int updateRouteFavoriteNum(int rid);
+
+    /**
+     * 查询某个用户所有收藏的线路个数
+     */
+    @Select("select count(1) from tab_favorite where uid=#{uid}")
+    int getCount(int uid);
+
+    /**
+     * 查询某个用户所有收藏的线路，分页查询，每页显示4条
+     */
+    @Select("select * from tab_favorite f inner join tab_route r on r.`rid` = f.`rid` where f.uid=#{uid} order by f.date desc limit #{begin}, #{size}")
+    List<Map<String,Object>> findFavoriteListByPage(@Param("uid") int uid, @Param("begin") int begin, @Param("size") int size);
+
+
 }

@@ -170,7 +170,10 @@
                                 //如果是false，表示没有登录
                                 if (flag == false) {
                                     alert("收藏前请先登录");
-                                    location.href = "login.html";
+                                    //获取当前地址栏的页面
+                                    var backurl = location.href;
+                                    //跳过去的时候，带上这个参数
+                                    location.href = "login.html?backurl=" + backurl;
                                 }
                                 else {
                                     alert("收藏成功");

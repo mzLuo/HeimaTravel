@@ -11,6 +11,8 @@
     <!--导入jquery-->
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/bootstrap.min.js"></script>
+    <script src="js/getParameter.js"></script>
+
 </head>
 
 <body>
@@ -69,11 +71,23 @@
             url:"user",
             data:param,
             success:function(result) {
+                //3.登录成功返回success字符串，并且跳转到index.html
                 if (result == "success") {
-                    location.href = "index.html";
-                } else {
+                    //如果登录成功，获取backurl的参数
+                    var backurl = getParameter("backurl");
+                    //如果有值，就跳转到backurl的页面
+                    if (backurl) {//空串为假，有地址就为真
+                        location.href = backurl;
+                    }
+                    else {//否则就跳转到首页
+                        location.href = "index.html";
+                    }
+                } else {//登录失败，将错误信息显示在errorMsg这个span中
+
                     $("#errorMsg").text(result);
+                    //请空表单
                     $("#loginForm")[0].reset();
+                    //刷新验证码
                     $("#picCode").attr("src","code?t=" + new Date().getTime());
                 }
             }

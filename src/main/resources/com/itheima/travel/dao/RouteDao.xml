@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.itheima.travel.dao.RouteDao">
+    <!--定义一个SQL代码块-->
+    <sql id="sqlCondition">
+        <where>
+            <!-- rname不为空，也不为空串，做为查询条件 -->
+            <if test="condition.rname!=null and condition.rname!=''">
+                rname like "%"#{condition.rname}"%"
+            </if>
+            <if test="condition.startPrice!=null and condition.startPrice!=''">
+                and price >= #{condition.startPrice}
+            </if>
+            <if test="condition.endPrice!=null and condition.endPrice!=''">
+                and price &lt;= #{condition.endPrice}
+            </if>
+        </where>
+    </sql>
+
+    <!--查询所有的线路-->
+    <select id="getCountByFavoriteRank" resultType="int">
+        select count(1) from tab_route
+        <include refid="sqlCondition"/>
+    </select>
+
+    <!--查询1页的数据-->
+    <select id="getRoutesFavoriteRankByPage" resultType="route">
+        select * from tab_route
+        <include refid="sqlCondition"/>
+        order by `count` desc limit #{begin},#{size}
+    </select>
+
+</mapper>

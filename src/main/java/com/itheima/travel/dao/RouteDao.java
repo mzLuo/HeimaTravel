@@ -2,6 +2,7 @@ package com.itheima.travel.dao;
 
 import com.itheima.travel.entity.Route;
 import com.itheima.travel.entity.RouteImg;
+import org.apache.ibatis.annotations.CacheNamespace;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.annotations.Select;
 
@@ -48,4 +49,21 @@ public interface RouteDao {
      */
     @Select("select * from tab_route_img where rid=#{rid}")
     List<RouteImg> findRouteImgsByRid(int rid);
+
+    /**
+     * 查询所有的线路
+     * 封装查询条件
+     * @param condition
+     * @return
+     */
+    int getCountByFavoriteRank(@Param("condition") Map<String,String>condition);
+
+    /**
+     * 查询一页的数据
+     * @param begin
+     * @param size
+     * @param condition
+     * @return
+     */
+    List<Route> getRoutesFavoriteRankByPage(@Param("begin")int begin, @Param("size") int size, @Param("condition")Map<String,String>condition);
 }
