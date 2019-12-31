@@ -20,13 +20,15 @@ public interface IFavoriteDao {
      * 向收藏表中添加1条记录
      * route和user是favorite的属性名
      */
-    @Insert("INSERT INTO tab_favorite VALUES(#{route.rid}, NOW(), #{user.uid});")
+//    @Insert("insert into tab_favorite VALUES(#{route.rid}, NOW(), #{user.uid});")
+    @Insert("insert into tab_favorite values(#{route.rid}, now(), #{user.uid});")
     int addFavorite(Favorite favorite);
 
     /**
      * 更新这些线路收藏的人数
      */
-    @Update("update tab_route SET COUNT=COUNT+1 WHERE rid=#{rid}")
+//    @Update("update tab_route SET COUNT=COUNT+1 WHERE rid=#{rid}")
+    @Update("update tab_route set count=count+1 where rid=#{rid}")
     int updateRouteFavoriteNum(int rid);
 
     /**

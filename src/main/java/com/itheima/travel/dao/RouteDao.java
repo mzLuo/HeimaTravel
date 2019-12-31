@@ -13,7 +13,8 @@ public interface RouteDao {
     /**
      * 查询某个分类的线路收藏人数最多的6条，按降序排序
      */
-    @Select("SELECT * FROM tab_route WHERE cid=#{cid} ORDER BY COUNT DESC LIMIT 0,6;")
+//    @Select("SELECT * FROM tab_route WHERE cid=#{cid} ORDER BY COUNT DESC LIMIT 0,6;")
+    @Select("select * from tab_route where cid=#{cid} order by count desc limit 0,6;")
     List<Route> findMostFavoriteRouteByCid(int cid);
 
     /**
@@ -38,7 +39,8 @@ public interface RouteDao {
      * @param rid
      * @return
      */
-    @Select("SELECT * FROM tab_category c INNER JOIN tab_route r ON c.cid = r.cid INNER JOIN tab_seller s ON s.sid = r.sid WHERE r.rid = #{rid}")
+//    @Select("SELECT * FROM tab_category c INNER JOIN tab_route r ON c.cid = r.cid INNER JOIN tab_seller s ON s.sid = r.sid WHERE r.rid = #{rid}")
+    @Select("select * from tab_category c inner join tab_route r on c.cid = r.cid inner join tab_seller s on s.sid = r.sid where r.rid = #{rid}")
     Map<String, Object> findRouteByRid(int rid);
 
 
